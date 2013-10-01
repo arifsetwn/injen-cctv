@@ -1,0 +1,9 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+smbd -D
+nmbd -D
+sh /www/injen/script/setdate.sh
+sh /www/injen/script/runsatpam.sh
+mjpg_streamer -i "input_uvc.so -d /dev/video0 -r 320x240 -f 30 -y" -o "output_http.so"
+exit 0
